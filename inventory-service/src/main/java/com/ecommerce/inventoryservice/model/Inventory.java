@@ -1,4 +1,5 @@
-package com.ecommerce.orderservice.orderservice.model;
+package com.ecommerce.inventoryservice.model;
+
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,20 +7,17 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Entity
-@Table(name = "order_line_items")
+@Table(name = "inventory")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderLineItems {
+public class Inventory {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String skuCode;
-    private BigDecimal price;
     private Integer quantity;
 }

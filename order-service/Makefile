@@ -1,5 +1,5 @@
 
-mysql:
+start-mysql:
 	docker run -d \
       --name mysql-container \
       -p 3333:3306 \
@@ -7,5 +7,9 @@ mysql:
       -v $(PWD)/data:/var/lib/mysql \
       mysql
 
-create:
-	docker exec -it <container_id> mysql -u root -p mysql -e "CREATE DATABASE order_service;"
+stop:
+	docker stop mysql-container
+
+stop-mysql: stop
+	docker rm mysql-container
+
