@@ -1,9 +1,6 @@
 package com.ecommerce.orderservice.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @Builder
@@ -12,5 +9,5 @@ import lombok.NoArgsConstructor;
 public class InventoryResponse {
 
     private String skuCode;
-    private Boolean isInStock;
+    private boolean isInStock;
 }
