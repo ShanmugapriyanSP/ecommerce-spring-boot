@@ -1,6 +1,6 @@
 
-start-services:
-#	net start MySQL80
+keycloak:
 	kc.bat start-dev --http-port=8090
-#start-keycloak:
-#	start /bkc.bat start-dev --http-port=8090
+
+zipkin:
+	docker run -d -p 9411:9411 openzipkin/zipkin:latest
