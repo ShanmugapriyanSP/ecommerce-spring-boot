@@ -14,22 +14,22 @@ public class InventoryServiceApplication {
 		SpringApplication.run(InventoryServiceApplication.class, args);
 	}
 
-//	@Bean
-//	public CommandLineRunner loadData(InventoryRepository inventoryRepository) {
-//		return args -> {
-//			Inventory inventory = Inventory.builder()
-//					.skuCode("realme2pro_1")
-//					.quantity(100)
-//					.build();
-//
-//			Inventory inventory1 = Inventory.builder()
-//					.skuCode("realme2pro_2")
-//					.quantity(200)
-//					.build();
-//
-//			inventoryRepository.save(inventory);
-//			inventoryRepository.save(inventory1);
-//		};
-//	}
+	@Bean
+	public CommandLineRunner loadData(InventoryRepository inventoryRepository) {
+		return args -> {
+			Inventory inventory = Inventory.builder()
+					.skuCode("realme2pro_1")
+					.quantity(100)
+					.build();
+
+			Inventory inventory1 = Inventory.builder()
+					.skuCode("realme2pro_2")
+					.quantity(200)
+					.build();
+
+			inventoryRepository.save(inventory);
+			inventoryRepository.save(inventory1);
+		};
+	}
 
 }
