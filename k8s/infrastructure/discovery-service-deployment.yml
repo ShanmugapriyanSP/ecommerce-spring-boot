@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: discovery-service
+  name: discovery-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: discovery-service
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: discovery-service
+    spec:
+      containers:
+        - env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: docker
+          image: spshan/discovery-service
+          name: discovery-service
+          ports:
+            - containerPort: 8761
+          resources: {}
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: discovery-service
+  name: discovery-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: discovery-service
+  ports:
+    - name: "8761"
+      port: 8761
+      targetPort: 8761
+status:
+  loadBalancer: {}

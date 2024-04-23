@@ -32,3 +32,5 @@ build/
 ### VS Code ###
 .vscode/
 database
+k8s/generated
+grafana
