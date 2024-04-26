@@ -35,6 +35,10 @@ spec:
           name: broker
           ports:
             - containerPort: 9092
+              hostPort: 29092
+              protocol: TCP
+            - containerPort: 29092
+              protocol: TCP
           resources: {}
       restartPolicy: Always
 status: {}
@@ -47,9 +51,12 @@ metadata:
   name: broker
 spec:
   ports:
-    - name: "9092"
-      port: 9092
+    - name: "29092"
+      port: 29092
       targetPort: 9092
+    - name: 29092-tcp
+      port: 29092
+      targetPort: 29092
   selector:
     app: broker
 status:

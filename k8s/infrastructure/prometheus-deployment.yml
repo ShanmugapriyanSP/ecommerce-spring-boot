@@ -24,13 +24,13 @@ spec:
             - containerPort: 9090
           resources: {}
           volumeMounts:
-            - mountPath: /etc/prometheus/prometheus.yml
-              name: prometheus-claim0
+            - name: prometheus-config
+              mountPath: /etc/prometheus
       restartPolicy: Always
       volumes:
-        - name: prometheus-claim0
-          persistentVolumeClaim:
-            claimName: prometheus-claim0
+        - name: prometheus-config
+          configMap:
+            name: prometheus-config
 status: {}
 ---
 apiVersion: v1
@@ -48,18 +48,3 @@ spec:
     app: prometheus
 status:
   loadBalancer: {}
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  creationTimestamp: null
-  labels:
-    app: prometheus-claim0
-  name: prometheus-claim0
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 100Mi
-status: {}

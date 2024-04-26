@@ -34,3 +34,4 @@ build/
 database
 k8s/generated
 grafana
+temp_token.txt

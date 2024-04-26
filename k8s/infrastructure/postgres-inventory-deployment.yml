@@ -29,9 +29,7 @@ spec:
           image: postgres
           name: postgres-inventory
           ports:
-            - containerPort: 5431
-              hostPort: 5431
-              protocol: TCP
+            - containerPort: 5432
           resources: {}
           volumeMounts:
             - mountPath: /data/postgres
@@ -52,7 +50,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    app: grafana
+    app: postgres-inventory
   ports:
     - name: "5432"
       port: 5432
