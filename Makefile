@@ -2,6 +2,12 @@
 
 NAMESPACE = ecommerce
 
+
+# Docker publish
+
+publish:
+	mvn clean compile jib:build
+
 # -----------------------------------------------------------------------------
 # services for local run
 keycloak:
@@ -55,13 +61,4 @@ dashboard-forward-port:
 	kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy 8443:443
 
 keycloak-forward-port:
-	kubectl -n $(NAMESPACE) port-forward keycloak-584579b69b-n44hd 8080:8080
-
-product-forward-port:
-	kubectl -n $(NAMESPACE) port-forward product-service-cc899d97b-f6p2q 9194:8080
-
-order-forward-port:
-	kubectl -n $(NAMESPACE) port-forward order-service-6bccb5d57b-zv59r 9193:8080
-
-inventory-forward-port:
-	kubectl -n $(NAMESPACE) port-forward inventory-service-6b55785cd9-mxf84 9191:8080
+	kubectl -n $(NAMESPACE) port-forward deployment/keycloak 8080:8080

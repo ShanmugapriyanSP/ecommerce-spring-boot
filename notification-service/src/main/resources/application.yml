@@ -2,8 +2,8 @@ spring:
   application:
     name: notification-service
   kafka:
+    bootstrap-servers: http://127.0.0.1:9092
     consumer:
-      bootstrap-servers: http://127.0.0.1:9092
       group-id: orderId
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer

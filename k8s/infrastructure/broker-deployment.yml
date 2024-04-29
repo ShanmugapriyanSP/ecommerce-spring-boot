@@ -54,9 +54,6 @@ spec:
     - name: "29092"
       port: 29092
       targetPort: 9092
-    - name: 29092-tcp
-      port: 29092
-      targetPort: 29092
   selector:
     app: broker
 status:
