@@ -8,6 +8,9 @@ NAMESPACE = ecommerce
 publish:
 	mvn clean compile jib:build
 
+pull:
+	docker compose pull
+
 # -----------------------------------------------------------------------------
 # services for local run
 keycloak:

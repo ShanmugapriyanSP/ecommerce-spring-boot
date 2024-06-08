@@ -44,7 +44,7 @@ public class OrderService {
         List<String> skuCodes = order.getOrderLineItemsList().stream().map(OrderLineItems::getSkuCode).toList();
 
         InventoryResponse[] inventoryResponseArray = webClientBuilder.build().get()
-                .uri("http://inventory-service/api/inventory",
+                .uri("http://inventory-service:8080/api/inventory",
                         uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
                 .retrieve()
                 .bodyToMono(InventoryResponse[].class)

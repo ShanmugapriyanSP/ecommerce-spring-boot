@@ -34,10 +34,11 @@ metadata:
     app: inventory-service
   name: inventory-service
 spec:
+  type: LoadBalancer
   ports:
-    - name: "8080"
-      port: 8080
-      targetPort: 9191
+    - name: "80"
+      port: 80
+      targetPort: 8080
   selector:
     app: inventory-service
 status:
